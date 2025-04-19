@@ -13,9 +13,9 @@ by Silvana Pereyra et al.
 
 Our work presents a targeted bisulfite sequencing approach using Oxford Nanopore’s long-read technology to analyze DNA methylation at specific promoter regions. This cost-effective method enables high-resolution, high-depth methylation profiling across multiple samples, and is especially suited for clinical and translational research.
 
-## Authors: Silvana Pereyra1*, Angela Sardina1, Rita Neumann2, Celia May2, Rossana Sapiro3, Bernardo Bertoni1, Mónica Cappetta
+### Authors: Silvana Pereyra1*, Angela Sardina1, Rita Neumann2, Celia May2, Rossana Sapiro3, Bernardo Bertoni1, Mónica Cappetta
 
-## Institutions: 1 Unidad Académica de Genética, Facultad de Medicina, Universidad de la República, Montevideo, Uruguay. 2 Department of Genetics & Genome Biology, College of Life Sciences, University of Leicester, UK. 3 Unidad Académica de Histología y Embriología, Facultad de Medicina, Universidad de la República. Montevideo, Uruguay.
+### Institutions: 1 Unidad Académica de Genética, Facultad de Medicina, Universidad de la República, Montevideo, Uruguay. 2 Department of Genetics & Genome Biology, College of Life Sciences, University of Leicester, UK. 3 Unidad Académica de Histología y Embriología, Facultad de Medicina, Universidad de la República. Montevideo, Uruguay.
 
 ## Session Info
 > sessionInfo()
