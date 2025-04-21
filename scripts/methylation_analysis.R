@@ -12,33 +12,22 @@ library(GenomicRanges)
 
 # Load sample design metadata (replace with actual paths)
 design_files <- list(
-  Junio2018 = "Documents/ProjectFolder/Junio2018.csv",
-  Enero2019 = "Documents/ProjectFolder/Enero2019.csv",
-  Febrero2020 = "Documents/ProjectFolder/Febrero2020.csv",
-  UK2018 = "Documents/ProjectFolder/UK2018.csv",
-  Abril2021 = "Documents/ProjectFolder/Abril2021.csv",
-  Diciembre2021 = "Documents/ProjectFolder/Diciembre2021.csv"
+  Run1 = "Documents/ProjectFolder/Run1.csv",
+  Run2 = "Documents/ProjectFolder/Run2.csv"
 )
 
 design_data <- lapply(design_files, read.csv)
 
 # Define paths and load all count files
 data_paths <- list(
-  Junio2018 = "Documents/ProjectFolder/ConteosJunio2018",
-  Enero2019 = "Documents/ProjectFolder/ConteosEnero2019",
-  Febrero2020 = "Documents/ProjectFolder/ConteosFebrero2020",
-  UK2018 = "Documents/ProjectFolder/ConteosUK2018",
-  Abril2021 = "Documents/ProjectFolder/ConteosAbril2021",
-  Diciembre2021 = "Documents/ProjectFolder/ConteosDiciembre2021"
+  Run1 = "Documents/ProjectFolder/ConteosRun1",
+  Run2 = "Documents/ProjectFolder/ConteosRun2"
 )
 
+# Define filename patterns for each run
 patterns <- list(
-  Junio2018 = "trimmed-barcode",
-  Enero2019 = "trimmed",
-  Febrero2020 = "trimmed-barcode",
-  UK2018 = "trimmed-barcode",
-  Abril2021 = "barcode",
-  Diciembre2021 = "filtered"
+  Run1 = "trimmed-barcode", # Adjust per your filename, if neccesary
+  Run2 = "trimmed-barcode" # Adjust per your filename, if neccesary
 )
 
 # Helper function to read and format raw count files
@@ -103,7 +92,7 @@ genome(gr) <- "hg38"
 
 # Load BED file with regions of interest
 genes_bed <- read.csv(
-  "Documents/ProjectFolder/GenesBEDPrematuros.bed.csv",
+  "Documents/ProjectFolder/GenesBED_PPT.bed.csv",
   header = TRUE,
   col.names = c("chrom", "chromStart", "chromEnd", "name", "strand", "geneName")
 )
@@ -123,11 +112,11 @@ genome(GenesSecs.gr) <- "hg38"
 df.gr_PPT <- subsetByOverlaps(df.gr, GenesSecs.gr)
 
 # Generate list of candidate genes
-genesPrematuro <- unique(GenesSecs$geneName)
+genes_PPT <- unique(GenesSecs$geneName)
 
 # Selected indexes
 genes_idx <- c(1:7, 9:11, 13:14)
-genes_sel <- genesPrematuro[genes_idx]
+genes_sel <- genes_PPT[genes_idx]
 
 # Create a list of GRanges objects, one per gene
 df_LIST <- setNames(lapply(genes_sel, function(gen) {
